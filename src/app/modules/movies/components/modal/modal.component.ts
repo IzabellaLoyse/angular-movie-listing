@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { MovieDataService } from '../../../../services/movie-data.service';
+import { Component, Inject, OnInit } from '@angular/core';
+import { MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
+import { IMovie } from '../../../../interfaces/movie';
+import { MovieService } from '../../../../services/movie.service';
 
 @Component({
   selector: 'app-modal',
@@ -7,7 +9,21 @@ import { MovieDataService } from '../../../../services/movie-data.service';
   styleUrls: ['./modal.component.scss'],
 })
 export class ModalComponent implements OnInit {
-  constructor(private movieData: MovieDataService) {}
+  public movie!: IMovie;
 
-  public ngOnInit(): void {}
+  constructor(
+    public dialog: MatDialog,
+    private moviService: MovieService,
+    @Inject(MAT_DIALOG_DATA) public data: any
+  ) {}
+
+  public ngOnInit(): void {
+    this.moviService.getMovieById(this.data.imdbID).subscribe((data) => {
+      this.movie = data;
+    });
+  }
+
+  public closeModal() {
+    this.dialog.closeAll();
+  }
 }
