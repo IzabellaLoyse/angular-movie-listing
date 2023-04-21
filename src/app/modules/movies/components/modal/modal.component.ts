@@ -9,7 +9,7 @@ import { MovieService } from '../../../../services/movie.service';
   styleUrls: ['./modal.component.scss'],
 })
 export class ModalComponent implements OnInit {
-  public movie!: IMovie;
+  public movie: IMovie = {};
 
   constructor(
     public dialog: MatDialog,

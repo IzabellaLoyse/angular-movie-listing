@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { Subscription } from 'rxjs';
 import { IMovie } from '../../../../interfaces/movie';
 import { MovieDataService } from '../../../../services/movie-data.service';
 import { ModalComponent } from '../modal/modal.component';
@@ -9,15 +10,19 @@ import { ModalComponent } from '../modal/modal.component';
   templateUrl: './movie-card.component.html',
   styleUrls: ['./movie-card.component.scss'],
 })
-export class MovieCardComponent implements OnInit {
+export class MovieCardComponent implements OnInit, OnDestroy {
+  private movieCardSubscription!: Subscription;
+
   public movies: IMovie[] = [];
 
   constructor(public dialog: MatDialog, private movieData: MovieDataService) {}
 
   public ngOnInit(): void {
-    this.movieData.getMovieData().subscribe((data) => {
-      this.movies = data;
-    });
+    this.movieCardSubscription = this.movieData
+      .getMovieData()
+      .subscribe((data) => {
+        this.movies = data;
+      });
   }
 
   public openModal(movie: IMovie) {
@@ -28,5 +33,9 @@ export class MovieCardComponent implements OnInit {
         imdbID: movie.imdbID,
       },
     });
+  }
+
+  public ngOnDestroy(): void {
+    this.movieCardSubscription.unsubscribe();
   }
 }

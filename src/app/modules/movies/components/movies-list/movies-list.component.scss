@@ -1,0 +1,52 @@
+@import "variables.scss";
+
+.search-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 1rem;
+  width: 100%;
+
+  h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    font-weight: map-get($font-weights, "bold");
+  }
+
+  &__nomovies {
+    margin-top: 2rem;
+    width: 100%;
+
+    p {
+      font-size: 1.2rem;
+      font-weight: map-get($font-weights, "black");
+      text-align: center;
+    }
+  }
+}
+
+.layout-cards {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+.form {
+  position: relative;
+
+  span {
+    display: block;
+    position: absolute;
+    top: 6px;
+    left: 200px;
+    cursor: pointer;
+  }
+
+  input {
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+    width: 120%;
+    height: 2.5rem;
+  }
+}

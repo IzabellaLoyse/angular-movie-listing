@@ -1,7 +1,8 @@
-<section>
-  <p>Procure pelo filme de sua preferencia</p>
+<section class="search-container">
+  <h2>🔍 Procure pelo filme de sua preferência</h2>
 
-  <form>
+  <form class="form">
+    <span>🔍</span>
     <input
       type="search"
       placeholder="Buscando por..."
@@ -9,11 +10,13 @@
     />
   </form>
 
-  <div *ngIf="movies; else noMovies">
+  <div class="card-grid" *ngIf="movies; else noMovies">
     <app-movie-card></app-movie-card>
   </div>
 
   <ng-template #noMovies>
-    <p>Não há filmes para serem exibidos</p>
+    <div class="search-container__nomovies">
+      <p>Não há filmes para serem exibidos 🤐</p>
+    </div>
   </ng-template>
 </section>

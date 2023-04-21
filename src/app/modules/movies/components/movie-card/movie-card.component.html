@@ -1,8 +1,8 @@
-<article>
+<article class="grid-cards">
   <div *ngFor="let movie of movies">
     <p>{{ movie.Title }}</p>
 
-    <img src="{{ movie.Poster }}" alt="" />
+    <img src="{{ movie.Poster }}" alt="{{ movie.Title }}" />
     <button type="button" (click)="openModal(movie)">Detalhes</button>
   </div>
 </article>
