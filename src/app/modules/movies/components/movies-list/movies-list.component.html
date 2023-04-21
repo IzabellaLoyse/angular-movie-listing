@@ -1,0 +1,19 @@
+<section>
+  <p>Procure pelo filme de sua preferencia</p>
+
+  <form>
+    <input
+      type="search"
+      placeholder="Buscando por..."
+      (input)="searchMovie($event)"
+    />
+  </form>
+
+  <div *ngIf="movies; else noMovies">
+    <app-movie-card></app-movie-card>
+  </div>
+
+  <ng-template #noMovies>
+    <p>Não há filmes para serem exibidos</p>
+  </ng-template>
+</section>
