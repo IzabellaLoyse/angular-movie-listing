@@ -5,10 +5,12 @@ export interface IMovie {
   Type?: string;
   Poster?: string;
   Rated?: string;
+  Released?: string;
   Runtime?: string;
   Genre?: string;
   Writer?: string;
-  Actores?: string;
+  Director?: string;
+  Actors?: string;
   Plot?: string;
   Language?: string;
   Country?: string;

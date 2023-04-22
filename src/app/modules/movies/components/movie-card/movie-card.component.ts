@@ -29,7 +29,6 @@ export class MovieCardComponent implements OnInit, OnDestroy {
     this.dialog.open(ModalComponent, {
       data: {
         title: `Detalhes do filme: ${movie.Title}`,
-        message: 'This is a message',
         imdbID: movie.imdbID,
       },
     });

@@ -1,9 +1,30 @@
-<section>
-  <button (click)="closeModal()">X</button>
-  <h1>{{ data.title }}</h1>
-  <p>{{ data.message }}</p>
+<section class="modal-container">
+  <button class="close-modal" (click)="closeModal()">❌</button>
+  <h2>{{ data.title }}</h2>
 
   <article>
-    <h3>{{ movie.Title }}</h3>
+    <div class="poster">
+      <img src="{{ movie.Poster }}" alt="{{ movie.Title }} poster" />
+    </div>
+
+    <div class="movie-details">
+      <p class="movie-plot">{{ movie.Plot }}</p>
+
+      <div class="movie-other-info">
+        <p><strong>Director:</strong> {{ movie.Director }}</p>
+        <p><strong>Writers:</strong> {{ movie.Writer }}</p>
+        <p><strong>Actors:</strong> {{ movie.Actors }}</p>
+        <p><strong>Country:</strong> {{ movie.Country }}</p>
+        <p><strong>Language:</strong> {{ movie.Language }}</p>
+        <p><strong>Runtime:</strong> {{ movie.Runtime }}</p>
+        <p><strong>Genre:</strong> {{ movie.Genre }}</p>
+        <p><strong>Released:</strong> {{ movie.Released }}</p>
+        <p><strong>Awards:</strong> {{ movie.Awards }}</p>
+        <p>
+          <strong>IMDB Rating:</strong>
+          {{ movie.imdbRating | starsRating }} {{ movie.imdbRating }}
+        </p>
+      </div>
+    </div>
   </article>
 </section>
