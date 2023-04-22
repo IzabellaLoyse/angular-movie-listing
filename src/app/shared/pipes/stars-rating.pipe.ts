@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { IMovie } from '../interfaces/movie';
+import { IMovie } from '../../interfaces/movie';
 
 @Pipe({
   name: 'starsRating',

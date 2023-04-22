@@ -1,3 +1,5 @@
+@import "variables.scss";
+
 :host {
   display: flex;
   justify-content: center;
@@ -12,6 +14,13 @@
 .modal-container {
   max-height: 70vh;
   overflow-y: auto;
+
+  h2 {
+    padding-bottom: 0.8rem;
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: map-get($font-weights, "black");
+  }
 }
 
 .close-modal {
@@ -22,4 +31,45 @@
   position: absolute;
   right: 2rem;
   top: 1rem;
+}
+
+.movie-info {
+  &__poster {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1rem;
+
+    img {
+      width: 10rem;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    }
+  }
+}
+
+.movie-details {
+  &__plot {
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    text-align: justify;
+    font-weight: map-get($font-weights, "bold");
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 10;
+    -webkit-box-orient: vertical;
+  }
+}
+
+.other-infos {
+  p {
+    margin-bottom: 0.3rem;
+    font-size: 1rem;
+    font-weight: map-get($font-weights, "regular");
+
+    strong {
+      font-weight: map-get($font-weights, "black");
+    }
+  }
 }

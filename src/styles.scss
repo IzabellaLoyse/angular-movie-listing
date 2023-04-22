@@ -4,9 +4,20 @@
   box-sizing: border-box;
 }
 
+*,
+*::before,
+*::after {
+  outline-offset: 0.25rem;
+}
+
 body {
   line-height: 1.5;
   background-color: #100e0e;
   color: #fff;
   font-family: "Lato", sans-serif;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
 }

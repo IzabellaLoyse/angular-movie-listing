@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { catchError, throwError } from 'rxjs';
 import { IMovie } from '../../../../interfaces/movie';
+import { ErrorService } from '../../../../services/error.service';
 import { MovieDataService } from '../../../../services/movie-data.service';
 import { MovieService } from '../../../../services/movie.service';
 
@@ -13,7 +15,8 @@ export class MoviesListComponent implements OnInit {
 
   constructor(
     private movieService: MovieService,
-    private movieData: MovieDataService
+    private movieData: MovieDataService,
+    private errorService: ErrorService
   ) {}
 
   public ngOnInit(): void {}
@@ -21,9 +24,18 @@ export class MoviesListComponent implements OnInit {
   public searchMovie(event: any): void {
     const value = event.target.value.toLowerCase();
 
-    this.movieService.getMovies(value).subscribe((data) => {
-      this.movieData.setMovieData(data.Search);
-      this.movies = data.Search;
-    });
+    this.movieService
+      .getMovies(value)
+      .pipe(
+        catchError((error) => {
+          this.errorService.openSnackBar('Ocorreu um erro ao carregar o filme');
+
+          return throwError(() => error);
+        })
+      )
+      .subscribe((data) => {
+        this.movieData.setMovieData(data.Search);
+        this.movies = data.Search;
+      });
   }
 }

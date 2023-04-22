@@ -2,15 +2,15 @@
   <button class="close-modal" (click)="closeModal()">❌</button>
   <h2>{{ data.title }}</h2>
 
-  <article>
-    <div class="poster">
+  <article class="movie-info">
+    <div class="movie-info__poster">
       <img src="{{ movie.Poster }}" alt="{{ movie.Title }} poster" />
     </div>
 
     <div class="movie-details">
-      <p class="movie-plot">{{ movie.Plot }}</p>
+      <p class="movie-details__plot">{{ movie.Plot }}</p>
 
-      <div class="movie-other-info">
+      <div class="other-infos">
         <p><strong>Director:</strong> {{ movie.Director }}</p>
         <p><strong>Writers:</strong> {{ movie.Writer }}</p>
         <p><strong>Actors:</strong> {{ movie.Actors }}</p>
@@ -22,7 +22,8 @@
         <p><strong>Awards:</strong> {{ movie.Awards }}</p>
         <p>
           <strong>IMDB Rating:</strong>
-          {{ movie.imdbRating | starsRating }} {{ movie.imdbRating }}
+          {{ movie.imdbRating | starsRating }}
+          <strong>{{ movie.imdbRating }} </strong>
         </p>
       </div>
     </div>
