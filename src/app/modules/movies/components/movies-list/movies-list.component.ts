@@ -28,7 +28,7 @@ export class MoviesListComponent implements OnInit {
       .getMovies(value)
       .pipe(
         catchError((error) => {
-          this.errorService.openSnackBar('Ocorreu um erro ao carregar o filme');
+          this.errorService.openSnackBar('Ocorreu um erro ao buscar o filme');
 
           return throwError(() => error);
         })

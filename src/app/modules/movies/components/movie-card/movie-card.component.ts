@@ -26,11 +26,15 @@ export class MovieCardComponent implements OnInit, OnDestroy {
   }
 
   public openModal(movie: IMovie) {
-    this.dialog.open(ModalComponent, {
+    const dialogRef = this.dialog.open(ModalComponent, {
       data: {
         title: `Detalhes do filme: ${movie.Title}`,
         imdbID: movie.imdbID,
       },
+    });
+
+    dialogRef.componentInstance.hasErrorEmitter.subscribe(() => {
+      dialogRef.close();
     });
   }
 

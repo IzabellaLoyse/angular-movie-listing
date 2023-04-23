@@ -1,4 +1,8 @@
-<section class="modal-container">
+<section class="modal-container" *ngIf="!hasError">
+  <ng-container>
+    <app-loader *ngIf="isLoading"></app-loader>
+  </ng-container>
+
   <button class="close-modal" (click)="closeModal()">❌</button>
   <h2>{{ data.title }}</h2>
 
