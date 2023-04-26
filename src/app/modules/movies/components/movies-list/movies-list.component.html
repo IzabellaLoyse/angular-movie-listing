@@ -1,17 +1,19 @@
-<section class="search-container">
-  <h2>🔍 Procure pelo filme de sua preferência</h2>
+<section>
+  <div class="search-container">
+    <h2>🔍 Procure pelo filme de sua preferência</h2>
 
-  <form class="form">
-    <span>🔍</span>
-    <input
-      type="search"
-      placeholder="Buscando por..."
-      (input)="searchMovie($event)"
-    />
-  </form>
+    <form class="form">
+      <span>🔍</span>
+      <input
+        type="search"
+        placeholder="Buscando por..."
+        (input)="searchMovie($event)"
+      />
+    </form>
+  </div>
 
-  <div class="card-grid" *ngIf="movies; else noMovies">
-    <app-movie-card></app-movie-card>
+  <div *ngIf="movies; else noMovies">
+    <app-movie-card class="card-grid"></app-movie-card>
   </div>
 
   <ng-template #noMovies>

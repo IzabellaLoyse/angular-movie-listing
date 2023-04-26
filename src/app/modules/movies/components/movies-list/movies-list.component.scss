@@ -50,3 +50,12 @@
     height: 2.5rem;
   }
 }
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
+  grid-gap: 1.3rem;
+  padding: 1.3rem;
+  justify-items: center;
+  justify-content: center;
+}
