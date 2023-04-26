@@ -17,13 +17,29 @@
 
   &__title {
     font-size: 1.2rem;
-    font-weight: 900;
+    font-weight: map-get($font-weights, "black");
     text-align: center;
   }
 
   &__image {
     border-radius: 10px;
     width: 100%;
-    height: auto;
+    height: 100%;
+  }
+}
+
+.grid-cards__button {
+  border: none;
+  cursor: pointer;
+  border-radius: 10px;
+  padding: 0.5rem 1rem;
+  color: #292828;
+  font-weight: map-get($font-weights, "bold");
+  transition: 400ms ease-in-out;
+  letter-spacing: 1px;
+
+  &:hover {
+    background-color: #292828;
+    color: #fff;
   }
 }
